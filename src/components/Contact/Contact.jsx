@@ -8,13 +8,14 @@ import white_arrow from '../../assets/white-arrow.png'
 
 const Contact = () => {
     const [result,setResult]=useState("");
+const{formkey}=import.meta.env.VITE_access_Key;
 
      const onSubmit = async (event) => {
     event.preventDefault();
     setResult("Sending....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "e0f23ae2-681f-4ff9-aef0-28c6562eae40");
+    formData.append("access_key", `${formkey}`);
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -41,7 +42,7 @@ const Contact = () => {
                     Contact@uni.com
                 </li>
                     <li><img src={phone_icon} alt="" />
-                        +923115232432
+                        +4351243514623
                     </li>
                     <li><img src={location_icon} alt="" />
                         I-9 Islamabad <br />Pakistan
